@@ -1,0 +1,225 @@
+body {
+  background: linear-gradient(135deg, #000000, #111111, #222222, #333333, #444444, #555555);
+  background-size: 600% 600%; /* Large size to accommodate the stripes */
+  animation: stripeAnimation 15s linear infinite; /* Apply the stripes animation */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif; /* Modern and clean font */
+  position: relative; /* Make sure child elements are positioned correctly */
+}
+
+.title {
+  font-family: 'Cursive', sans-serif; /* Cursive font for a unique look */
+  font-size: 30px; /* Larger font size for greater impact */
+  font-weight: 200; /* Bold text */
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters for added emphasis */
+  letter-spacing: 2px; /* Spacing between letters for a more open feel */
+  background: linear-gradient(135deg, #ffffff, #dddddd);
+  background-size: 200% 200%; /* Ensure the gradient is large enough for animation */
+  -webkit-background-clip: text;
+  color: transparent;
+  position: absolute;
+  top: 5%; /* Move title closer to the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  padding: 20px;
+  border-radius: 10px;
+  border-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); /* Dynamic shadow for depth */
+  animation: gradientAnimation 2s ease-in-out infinite, shadowPulse 2s ease-in-out infinite; /* Apply gradient and shadow animations */
+}
+
+@keyframes stripeAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes shadowPulse {
+  0% {
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5), 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7), 0px 0px 20px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5), 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+#colorBox {
+  width: 400px; /* Adjusted width */
+  height: 400px; /* Adjusted height */
+  border: 10px solid #fff;
+  animation: boxshadowChange 3s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #111111, #222222);
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative; /* Ensure proper stacking context */
+  margin-top: 100px; /* Add margin to separate from other content */
+}
+
+@keyframes boxshadowChange {
+  0% {
+    box-shadow: 0px 0px 20px 0px rgb(50, 50, 50);
+  }
+  25% {
+    box-shadow: 0px 0px 20px 0px rgb(100, 100, 100);
+  }
+  50% {
+    box-shadow: 0px 0px 20px 0px rgb(150, 150, 150);
+  }
+  75% {
+    box-shadow: 0px 0px 20px 0px rgb(200, 200, 200);
+  }
+  100% {
+    box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+  }
+}
+
+button {
+  padding: 15px 30px; /* Increased padding for buttons */
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #6200ea;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #3700b3;
+  transform: scale(1.05);
+}
+
+.message-box {
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #222222, #444444);
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  align-items: stretch;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.messages {
+  overflow-y: auto;
+  flex: 1;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.8); /* Slightly translucent background for better readability */
+  border-radius: 10px;
+}
+
+.inputs {
+  padding: 20px; /* Increased padding for the inputs container */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap between inputs */
+  background-color: #111111; /* Darker background for inputs */
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+}
+
+.inputs div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between label and input */
+}
+
+.label {
+  font-size: 20px; /* Increased label font size */
+  color: #ffffff;
+  font-family: 'Arial', sans-serif; /* Clean font for labels */
+  padding: 20px;
+}
+
+.inputs input[type="text"], .inputs input[type="submit"] {
+  padding: 15px; /* Increased padding for input boxes */
+  font-size: 18px; /* Increased font size for better readability */
+  border: 2px solid #000;
+  border-radius: 8px;
+  outline: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.inputs input[type="text"]:focus, .inputs input[type="submit"]:hover {
+  background-color: #e0f7fa;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+#message {
+  flex: 1;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.muted {
+  font-size: 10px;
+  color: darkgray;
+}
+
+.error-message {
+  color: #ff4d4d; /* Bright red for error messages */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between form elements */
+}
+
+.button-group {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
