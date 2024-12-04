@@ -1,5 +1,5 @@
 
-# 📹 Peer-to-Peer Video Chat Application
+# 📹 SANKET(Peer-to-Peer Video Chat Application)
 
 A seamless **peer-to-peer video and text chat application** built with **Flask**, **Flask-SocketIO**, **HTML**, **CSS**, and **WebRTC**. This application enables direct communication between users without relying on a central server, demonstrating the power of decentralized, real-time communication.
 
