@@ -69,6 +69,23 @@ def message(data):
     send(content, to=room)
     rooms[room]["messages"].append(content)
     print(f"{session.get('name')} said: {data['data']}")
+@socketio.on('ice-candidate')
+def ice_candidate(data):
+    room = session.get("room")
+    if room in rooms:
+        send(data, to=room)
+
+@socketio.on('offer')
+def offer(data):
+    room = session.get("room")
+    if room in rooms:
+        send(data, to=room)
+
+@socketio.on('answer')
+def answer(data):
+    room = session.get("room")
+    if room in rooms:
+        send(data, to=room)
 
 @socketio.on("connect")
 def connect(auth):
@@ -100,4 +117,4 @@ def disconnect():
     print(f"{name} has left the room {room}")
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, host="127.0.0.1", port=5001, debug=False)
