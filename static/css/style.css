@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(135deg, #000000, #111111, #222222, #333333, #444444, #555555);
+  background: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e, #0066cc, #007bff);
   background-size: 600% 600%; /* Large size to accommodate the stripes */
   animation: stripeAnimation 15s linear infinite; /* Apply the stripes animation */
   margin: 0;
@@ -11,6 +11,63 @@ body {
   position: relative; /* Make sure child elements are positioned correctly */
 }
 
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.videos {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+video {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #001f3f;
+  background-color: #001f3f;
+}
+
+.message-box {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.messages {
+  background-color: #f0f8ff; /* Light background for messages */
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  border: 1px solid #003366;
+  margin-bottom: 10px;
+}
+
+.inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.inputs input {
+  flex-grow: 1;
+  padding: 8px;
+}
+
+.inputs button {
+  padding: 8px 16px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.inputs button:hover {
+  background-color: #002244;
+}
+
 .title {
   font-family: 'Cursive', sans-serif; /* Cursive font for a unique look */
   font-size: 30px; /* Larger font size for greater impact */
@@ -18,7 +75,7 @@ body {
   text-align: center;
   text-transform: uppercase; /* Uppercase letters for added emphasis */
   letter-spacing: 2px; /* Spacing between letters for a more open feel */
-  background: linear-gradient(135deg, #ffffff, #dddddd);
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
   background-size: 200% 200%; /* Ensure the gradient is large enough for animation */
   -webkit-background-clip: text;
   color: transparent;
@@ -56,26 +113,26 @@ body {
 
 @keyframes shadowPulse {
   0% {
-    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5), 0px 0px 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
   50% {
-    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7), 0px 0px 20px rgba(255, 255, 255, 0.7);
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7), 0px 0px 20px rgba(0, 0, 0, 0.7);
   }
   100% {
-    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5), 0px 0px 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
 }
 
 #colorBox {
   width: 400px; /* Adjusted width */
   height: 400px; /* Adjusted height */
-  border: 10px solid #fff;
+  border: 10px solid #003366;
   animation: boxshadowChange 3s infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #111111, #222222);
+  background: linear-gradient(145deg, #002244, #003366);
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   position: relative; /* Ensure proper stacking context */
@@ -106,20 +163,20 @@ button {
   border: none;
   border-radius: 8px;
   color: #ffffff;
-  background-color: #6200ea;
+  background-color: #003366;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #3700b3;
+  background-color: #002244;
   transform: scale(1.05);
 }
 
 .message-box {
-  border: 2px solid #ffffff;
+  border: 2px solid #003366;
   border-radius: 15px;
-  background: linear-gradient(135deg, #222222, #444444);
+  background: linear-gradient(135deg, #001f3f, #003366);
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -137,7 +194,7 @@ button:hover {
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.8); /* Slightly translucent background for better readability */
+  background: rgba(255, 255, 255, 0.9); /* Slightly translucent background for better readability */
   border-radius: 10px;
 }
 
@@ -146,7 +203,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 20px; /* Increased gap between inputs */
-  background-color: #111111; /* Darker background for inputs */
+  background-color: #001f3f; /* Darker background for inputs */
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
 }
@@ -167,21 +224,21 @@ button:hover {
 .inputs input[type="text"], .inputs input[type="submit"] {
   padding: 15px; /* Increased padding for input boxes */
   font-size: 18px; /* Increased font size for better readability */
-  border: 2px solid #000;
+  border: 2px solid #003366;
   border-radius: 8px;
   outline: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .inputs input[type="text"]:focus, .inputs input[type="submit"]:hover {
-  background-color: #e0f7fa;
+  background-color: #e6f2ff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   transform: scale(1.02);
 }
 
 h2 {
   text-align: center;
-  color: #fff;
+  color: #ffffff;
   font-size: 24px;
   margin: 20px 0;
 }
