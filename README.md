@@ -1,6 +1,4 @@
-Here's an updated and visually engaging README that incorporates a **video chat feature** for your Peer-to-Peer Chat Application:
 
-```markdown
 # 📹 Peer-to-Peer Video Chat Application
 
 A seamless **peer-to-peer video and text chat application** built with **Flask**, **Flask-SocketIO**, **HTML**, **CSS**, and **WebRTC**. This application enables direct communication between users without relying on a central server, demonstrating the power of decentralized, real-time communication.
