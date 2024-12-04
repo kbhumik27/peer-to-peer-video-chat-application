@@ -1,26 +1,24 @@
-
-
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <div class="message-box">
-  <h2>Chat Room: {{code}}</h2>
+  <h2>Chat Room: {{ code }}</h2>
   <div class="messages" id="messages"></div>
   <div class="inputs">
-    <input
-      type="text"
-      rows="3"
-      placeholder="Message"
-      name="message"
-      id="message"
-    />
-    <button type="button" name="send" id="send-btn" onClick="sendMessage()">
-      Send
-    </button>
+    <input type="text" rows="3" placeholder="Message" name="message" id="message" />
+    <button type="button" name="send" id="send-btn" onClick="sendMessage()">Send</button>
   </div>
 </div>
-<script type="text/javascript">
-  var socketio = io();
 
-  const messages = document.getElementById("messages");
+<div class="video-box">
+  <video id="localVideo" autoplay muted></video>
+  <video id="remoteVideo" autoplay></video>
+</div>
+
+<script type="text/javascript">
+  var socket = io();
+  const localVideo = document.getElementById('localVideo');
+  const remoteVideo = document.getElementById('remoteVideo');
+  const messages = document.getElementById('messages');
 
   const createMessage = (name, msg) => {
     const content = `
@@ -36,19 +34,63 @@
     messages.innerHTML += content;
   };
 
-  socketio.on("message", (data) => {
+  socket.on("message", (data) => {
     createMessage(data.name, data.message);
   });
 
   const sendMessage = () => {
     const message = document.getElementById("message");
     if (message.value == "") return;
-    socketio.emit("message", { data: message.value });
+    socket.emit("message", { data: message.value });
     message.value = "";
   };
+
+  // WebRTC setup
+  let localStream;
+  let peerConnection;
+  const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+
+  navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    .then(stream => {
+      localVideo.srcObject = stream;
+      localStream = stream;
+      
+      peerConnection = new RTCPeerConnection(configuration);
+      peerConnection.addStream(localStream);
+
+      peerConnection.onaddstream = event => {
+        remoteVideo.srcObject = event.stream;
+      };
+
+      peerConnection.onicecandidate = event => {
+        if (event.candidate) {
+          socket.emit('ice-candidate', event.candidate);
+        }
+      };
+
+      socket.on('ice-candidate', candidate => {
+        peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+      });
+
+      socket.on('offer', (offer) => {
+        peerConnection.setRemoteDescription(new RTCSessionDescription(offer))
+          .then(() => peerConnection.createAnswer())
+          .then(answer => peerConnection.setLocalDescription(answer))
+          .then(() => socket.emit('answer', peerConnection.localDescription));
+      });
+
+      socket.on('answer', (answer) => {
+        peerConnection.setRemoteDescription(new RTCSessionDescription(answer));
+      });
+
+      socket.emit('join', { room: '{{ code }}' });
+    })
+    .catch(error => console.error('Error accessing media devices.', error));
 </script>
+
 {% for msg in messages %}
 <script type="text/javascript">
-  createMessage("{{msg.name}}", "{{msg.message}}");
+  createMessage("{{ msg.name }}", "{{ msg.message }}");
 </script>
-{% endfor %} {% endblock %}
+{% endfor %}
+{% endblock %}
