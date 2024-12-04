@@ -1,84 +1,56 @@
-# peer-peer-chat-application
-a peer to peer chat application built using flask,html and css
-Peer-to-Peer Chat Application
-Peer-to-Peer Chat Application is a simple and efficient chat application that enables direct communication between users without the need for a central server. Built using Flask for the backend and HTML/CSS for the frontend, this application demonstrates the fundamentals of peer-to-peer communication in a web-based chat environment.
+# 📹 Peer-to-Peer Video Chat Application
 
-Features
-Direct Messaging: Send and receive messages directly between peers.
-User-Friendly Interface: Intuitive and responsive chat interface built with HTML and CSS.
-Real-Time Communication: Utilizes Flask-SocketIO for real-time messaging.
-Problem Statement
-Traditional chat applications often rely on central servers to handle message exchanges, which can introduce delays and scalability issues. This peer-to-peer chat application addresses the following challenges:
+A seamless **peer-to-peer video and text chat application** built with **Flask**, **Flask-SocketIO**, **HTML**, **CSS**, and **WebRTC**. This application enables direct communication between users without relying on a central server, demonstrating the power of decentralized, real-time communication.
 
-Central Server Dependency: Eliminates the need for a central server by enabling direct communication between users.
-Scalability: Demonstrates a lightweight approach to chat systems that can be scaled for small groups without server overhead.
-Real-Time Messaging: Provides real-time message delivery and interaction.
-Proposed Solution
-This chat application uses Flask to handle HTTP requests and WebSocket communication via Flask-SocketIO to facilitate real-time messaging between peers. HTML and CSS are used to create a simple, yet effective user interface.
+---
 
-Tech Stack
-Frontend:
+## ✨ Features
 
-HTML
-CSS
-Backend:
+- **🔗 Direct Peer-to-Peer Communication**: Connect with other users directly, bypassing the need for a central server.
+- **💬 Text Chat**: Real-time messaging with an intuitive, responsive interface.
+- **📹 Video Chat**: Engage in real-time video calls powered by WebRTC.
+- **⚡ Real-Time Communication**: Instant message and video updates using WebSocket technology.
+- **🎨 User-Friendly Interface**: Designed with HTML/CSS for an interactive and modern experience.
 
-Flask (Python web framework)
-Flask-SocketIO (WebSocket for real-time communication)
-Installation
-Clone the Repository
+---
 
-bash
-Copy code
-git clone https://github.com/yourusername/peer-to-peer-chat-application.git
-cd peer-to-peer-chat-application
-Create and Activate a Virtual Environment
+## 📖 Problem Statement
 
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install Dependencies
+Traditional chat applications often rely on centralized servers for communication, introducing delays, privacy concerns, and scalability challenges. This application addresses these issues:
 
-bash
-Copy code
-pip install -r requirements.txt
-Run the Application
+- **No Central Server**: Direct peer-to-peer communication eliminates server dependency.
+- **Real-Time Messaging and Video**: Leverages WebRTC and Flask-SocketIO for instantaneous interaction.
+- **Lightweight and Scalable**: Ideal for small-scale applications without heavy server overhead.
 
-bash
-Copy code
-python app.py
-The application will start running on http://localhost:5000.
+---
 
-Usage
-Access the Chat Application
+## 💡 Solution Overview
 
-Open your web browser and navigate to http://localhost:5000 to access the chat application.
+This application combines the following technologies for a robust peer-to-peer experience:
 
-Connect and Chat
+- **Flask** for handling HTTP requests and backend logic.
+- **Flask-SocketIO** for WebSocket-based real-time communication.
+- **WebRTC** for secure peer-to-peer video calling.
+- **HTML/CSS** for building an intuitive user interface.
 
-Enter your username and connect to the chat.
-Use the chat interface to send and receive messages in real-time.
-Configuration
-You can configure the application settings by editing the config.py file:
+---
 
-python
-Copy code
-# config.py
-SECRET_KEY = 'your_secret_key'
-"SECRET_KEY": Set a secret key for Flask session management.
-Contributing
-We welcome contributions to improve the Peer-to-Peer Chat Application! To contribute:
+## 🛠️ Tech Stack
 
-Fork the repository.
-Create a feature branch (git checkout -b feature-branch).
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature-branch).
-Open a Pull Request.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+**Frontend**:
+- HTML
+- CSS
+- WebRTC (for video calls)
 
-Acknowledgements
-Flask: Flask Documentation
-Flask-SocketIO: Flask-SocketIO Documentation
-HTML/CSS: Basic HTML and CSS for front-end design.
+**Backend**:
+- Flask
+- Flask-SocketIO
+
+---
+
+## 🚀 Installation
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/yourusername/peer-to-peer-video-chat.git
+cd peer-to-peer-video-chat
